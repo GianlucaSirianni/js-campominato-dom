@@ -2,6 +2,7 @@ function play() {
   let lvl = document.getElementById("level").value;
   console.log("play");
   bombArray = [];
+  score = 0;
 
   if (lvl == "easy") {
     while (bombArray.length < 16) {
@@ -34,8 +35,13 @@ function play() {
         // console.log(this);
         if (bombArray.includes(i)) {
           currentElement.classList.toggle("bombz");
+          document.getElementById("sadMessage").classList.add("disBlock");
+          document.getElementById("sadText").classList.add("txtBlock");
+          document.getElementById("userScore").innerHTML =
+            "Your total score is:  " + score;
         } else {
           currentElement.classList.toggle("active");
+          score += 1;
         }
       });
 
@@ -70,8 +76,13 @@ function play() {
         // console.log(this);
         if (bombArray.includes(i)) {
           currentElement.classList.toggle("bombz");
+          document.getElementById("sadMessage").classList.add("disBlock");
+          document.getElementById("sadText").classList.add("txtBlock");
+          document.getElementById("userScore").innerHTML =
+            "Your total score is:  " + score;
         } else {
           currentElement.classList.toggle("active");
+          score += 1;
         }
       });
 
@@ -106,8 +117,15 @@ function play() {
         // console.log(this);
         if (bombArray.includes(i)) {
           currentElement.classList.toggle("bombz");
+          console.log("GIOCO FINITO");
+
+          document.getElementById("sadMessage").classList.add("disBlock");
+          document.getElementById("sadText").classList.add("txtBlock");
+          document.getElementById("userScore").innerHTML =
+            "Your total score is:  " + score;
         } else {
           currentElement.classList.toggle("active");
+          score += 1;
         }
       });
 
@@ -118,4 +136,8 @@ function play() {
     // document.getElementById("sadMessage").innerHTML =
     //   "Don't you wanna have fun?";
   }
+}
+
+function reset() {
+  location.reload();
 }
